@@ -1,0 +1,19 @@
+POST http://localhost:8080/usuarios/post
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "Naticita"
+}
+
+###
+
+POST http://localhost:8080/seguidores/post
+Accept: application/json
+Content-Type: application/json
+
+{
+
+}
+
+###
