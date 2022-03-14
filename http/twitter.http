@@ -3,7 +3,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "username": "Naticita"
+  "username": "Natisita"
 }
 
 ###
@@ -13,7 +13,20 @@ Accept: application/json
 Content-Type: application/json
 
 {
+  "usuarioS": 1,
+  "userFollow": 2
+}
 
+###
+
+
+POST http://localhost:8080/twetts/post
+Accept: application/json
+Content-Type: application/json
+
+{
+  "texto": "Hola. estoy disfrutando de mi helado",
+  "idTweet_idUser": 2
 }
 
 ###

@@ -26,7 +26,7 @@ public class SeguidoresDao {
     }
     public Seguidores postSeguir(Seguidores seguidores) {
         System.out.println("ENTRE GG 1");
-        String query = "INSERT INTO usuarios VALUES (?,?);";
+        String query = "INSERT INTO seguidores VALUES (?,?);";
 
         System.out.println("ENTRE GG 2");
         try (
@@ -34,8 +34,8 @@ public class SeguidoresDao {
                 PreparedStatement pstmt =  conn.prepareStatement(query);
         ) {
             System.out.println("ENTRE GG"+query);
-            pstmt.setInt(1, seguidores.getIdUserFollow());
-            pstmt.setInt(2,seguidores.getIdUserFollow_idUser());
+            pstmt.setInt(1, seguidores.getUsuarioS());
+            pstmt.setInt(2,seguidores.getUserFollow());
 
 
             pstmt.executeUpdate();

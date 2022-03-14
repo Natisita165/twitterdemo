@@ -1,8 +1,12 @@
 package bo.edu.ucb.twitter.demotwitter.dto;
 
+import org.springframework.web.bind.annotation.ControllerAdvice;
+
+@ControllerAdvice
 public class Usuarios {
     private Integer idUser;
     private String username;
+
 
     public Usuarios(){
 
