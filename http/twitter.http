@@ -3,7 +3,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "username": "Natisita"
+  "username": "cahr"
 }
 
 ###
@@ -13,8 +13,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "usuarioS": 1,
-  "userFollow": 2
+  "usuarioS": 4,
+  "userFollow": 3
 }
 
 ###
@@ -25,8 +25,12 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "texto": "Hola. estoy disfrutando de mi helado",
-  "idTweet_idUser": 2
+  "texto": "HomeOffice",
+  "idTweet_idUser": 4
 }
 
 ###
+
+GET http://localhost:8080/timeline/get?usuarioline=1
+Accept: application/json
+Content-Type: application/json
