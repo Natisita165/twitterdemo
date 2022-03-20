@@ -1,0 +1,11 @@
+
+myapp:
+  store: mysql
+spring:
+  datasource:
+    url: ${BD_URL:jdbc:mysql://localhost:3307/twitter}
+    username: ${USER:root}
+    password: ${PASS:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#spring.cache.cache-names=ccustomer
+#spring.cache.caffeine.spec=maximumSize=500,expireAfterAccess=600s

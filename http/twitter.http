@@ -25,12 +25,16 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "texto": "HomeOffice",
+  "texto": "Y nimodoooooooo",
   "idTweet_idUser": 4
 }
 
 ###
 
-GET http://localhost:8080/timeline/get?usuarioline=1
+GET http://localhost:8080/timeline/get?usuarioline=2
 Accept: application/json
 Content-Type: application/json
+
+
+###
+

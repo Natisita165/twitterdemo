@@ -1,0 +1,31 @@
+version: "2.4"
+services:
+  bd:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mysql
+    restart: always
+    ports:
+      - "23306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      #MYSQL_DATABASE: "twitter"
+      #MYSQL_USER: "user"
+      #MYSQL_PASSWORD: "user"
+    volumes:
+      - ./schemas:/var/lib/mysql:rw
+  demotwitter:
+    image: demotwitter:0.0.1
+    mem_limit: 150m
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/opt/local:/opt/arqutectura/logs"
+    depends_on:
+      - bd
+    environment:
+      BD_URL: "jdbc:mysql://bd:3306/twitter"
+      USER: "root"
+      PASS: "root"
+

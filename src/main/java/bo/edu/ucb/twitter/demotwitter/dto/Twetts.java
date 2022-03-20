@@ -1,12 +1,24 @@
 package bo.edu.ucb.twitter.demotwitter.dto;
 
 
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
+@Configuration
+@EnableCaching
 @ControllerAdvice
 public class Twetts {
+
+    @Id
+    @GeneratedValue
+
     private Integer idTwett;
     private String texto;
     private Date timestamp;
