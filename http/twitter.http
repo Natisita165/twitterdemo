@@ -3,7 +3,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "username": "cahr"
+  "username": "Cp"
 }
 
 ###
@@ -13,8 +13,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "usuarioS": 4,
-  "userFollow": 3
+  "usuarioS": 5,
+  "userFollow": 1
 }
 
 ###
@@ -25,16 +25,32 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "texto": "Y nimodoooooooo",
-  "idTweet_idUser": 4
+  "texto": "Hola Mundo!",
+  "idTweet_idUser": 5
 }
+
 
 ###
 
-GET http://localhost:8080/timeline/get?usuarioline=2
+GET http://localhost:8080/timeline/1
 Accept: application/json
 Content-Type: application/json
 
 
 ###
 
+GET http://localhost:8080/cache/entries/timelines
+Accept: application/json
+Content-Type: application/json
+
+
+###
+
+
+
+
+
+
+GET http://localhost:8080/timeline/get?usuarioline=2
+Accept: application/json
+Content-Type: application/json

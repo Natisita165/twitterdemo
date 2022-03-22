@@ -24,10 +24,10 @@ public class TimelineApi {
     @Autowired
     private CustomKeyGenerator customKeyGenerator;
 
-    @RequestMapping(path = "/get",method = RequestMethod.GET)
-    @Cacheable(keyGenerator = "customKeyGenerator")
-    public List<Timeline> getTweetsLine(@RequestParam(value = "usuarioline",required = false) Integer usuarioline){
-        List<Timeline> obtenerLinea = timelineBl.getTweetsLine(usuarioline);
+    @RequestMapping(path = "/{id}",method = RequestMethod.GET)
+    @Cacheable(key = "#id")
+    public List<Timeline> getTweetsLine(@PathVariable(value = "id",required = false) Integer id){
+        List<Timeline> obtenerLinea = timelineBl.getTweetsLine(id);
         return obtenerLinea;
     }
 }

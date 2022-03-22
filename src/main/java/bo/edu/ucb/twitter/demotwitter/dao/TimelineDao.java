@@ -32,6 +32,7 @@ public class TimelineDao {
         List<Timeline> lineadetiempo = new ArrayList<>();
         //Timeline lineadetiempo=null;
         String query = "SELECT s.usuarioS, " +
+                "   t.timestamp, " +
                 "   s.userFollow, " +
                 "   t.idTwett, " +
                 "   t.texto, " +
@@ -42,7 +43,7 @@ public class TimelineDao {
                 "         s.usuarios=u.idUser AND "+
                 "         u.idUser=t.idTweet_idUser AND " +
                 "         s.userFollow= ? "+
-                "         LIMIT 4 OFFSET 1 ";
+                "         ORDER BY t.timestamp DESC ";
         //SELECT s.usuarioS, s.userFollow, t.idTwett, t.texto, t.idTweet_idUser, u.idUser FROM seguidores s, usuarios u, twetts t WHERE s.userFollow=1 AND s.usuarios=u.idUser AND u.idUser=t.idTweet_idUser ORDER BY rand() LIMIT 4;
         System.out.println("ENTRE 2");
         try (
