@@ -30,12 +30,12 @@ public class TimelineBl {
 
     //@Cacheable(value = "address_cache", key = "#root.target.MY_KEY")
     //@Cacheable("usuarioline")
-    @Cacheable(value = "address_cache", key = "#usuarioline")
+   // @Cacheable(value = "address_cache", key = "#usuarioline")
     public List<Timeline> getTweetsLine(Integer usuarioline) {
 
         return timelineDao.getTweetsLine(usuarioline);
     }
-
+/*
     @Bean
     public Caffeine caffeineConfig() {
         return Caffeine.newBuilder().expireAfterWrite(4, TimeUnit.MINUTES);
@@ -46,5 +46,5 @@ public class TimelineBl {
         CaffeineCacheManager caffeineCacheManager = new CaffeineCacheManager();
         caffeineCacheManager.setCaffeine(caffeine);
         return caffeineCacheManager;
-    }
+    }*/
 }
