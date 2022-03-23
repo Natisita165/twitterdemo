@@ -1,4 +1,5 @@
 package bo.edu.ucb.twitter.demotwitter;
+import bo.edu.ucb.twitter.demotwitter.dto.Timeline;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -6,12 +7,15 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.github.benmanes.caffeine.cache.Cache;
+import org.springframework.boot.configurationprocessor.json.JSONException;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.cache.CacheManager;
 import org.springframework.web.bind.annotation.*;
  import java.util.Collection;
  import java.util.HashMap;
- import java.util.Map;
- import java.util.concurrent.ConcurrentMap;
+import java.util.List;
+import java.util.concurrent.ConcurrentMap;
+
 
 @RestController
 @RequestMapping("/cache")
@@ -32,15 +36,18 @@ public class CaffeineCacheController {
         return cacheManager.getCacheNames();
     }
 
-    @GetMapping("/entries/{cacheLines}")
-    public Map<String, Object> getEntriesForCache(@PathVariable(name = "cacheLines") final String cacheLines) throws JsonProcessingException {
+    @GetMapping("/entries/{cacheLines}/{id}")
+    public List<Timeline> getEntriesForCache(@PathVariable(name = "cacheLines") final String cacheLines, @PathVariable String id) throws JsonProcessingException,JSONException{
         final Cache<String, Object> cache = (Cache<String, Object>) cacheManager.getCache(cacheLines).getNativeCache();
 
         final ConcurrentMap<String, Object> data = cache.asMap();
         final String json = objectMapper.writeValueAsString(data);
-
+        JSONObject objetoJson = new JSONObject(json);
+        String json1 = objetoJson.getString(id);
+        ObjectMapper mapper= new ObjectMapper();
+        Timeline[] timeline = mapper.readValue(json1, Timeline[].class);
         final TypeReference<HashMap<String,Object>> typeRef = new TypeReference<>() {};
-        return objectMapper.readValue(json, typeRef);
+        return List.of(timeline);
     }
 
 
